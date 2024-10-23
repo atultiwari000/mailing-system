@@ -1,0 +1,82 @@
+<!-- Subject: Exclusive Discount Offer Just for You! -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
+    .email-container {
+      max-width: 600px;
+      margin: 40px auto;
+      background-color: #ffffff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    .header {
+      text-align: center;
+      background-color: #ff6f61;
+      color: white;
+      padding: 20px;
+      border-radius: 10px 10px 0 0;
+    }
+    .body-text {
+      margin-left: 20px;
+      font-size: 16px;
+      color: #333;
+      line-height: 1.6;
+    }
+    .discount {
+      font-size: 24px;
+      color: #ff6f61;
+      font-weight: bold;
+      text-align: center;
+    }
+    .cta-button {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #ff6f61;
+      color: white;
+      border-radius: 5px;
+      text-decoration: none;
+      font-size: 16px;
+    }
+    .footer {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 12px;
+      color: #999;
+    }
+  </style>
+</head>
+<body>
+  <div class="email-container">
+    <h2 class="header">Exclusive Offer Just for You!</h2>
+    <p class="body-text">
+      Hello,
+    </p>
+    <p class="body-text">
+      We're excited to offer you an exclusive discount of <span class="discount">{{discount_percentage}}% OFF</span> on our latest products! But hurry, this offer is only available for the next <strong>{{time_limit}}</strong>.
+    </p>
+    <p class="body-text">
+      Use the button below to claim your discount and start shopping:
+    </p>
+    <div style="text-align: center;">
+      <a href="{{promo_link}}" class="cta-button">Claim Your Discount</a>
+    </div>
+    <p class="body-text">Don't miss out on this amazing deal!</p>
+    <p class="body-text">Best regards,<br>Your Company</p>
+    <div class="footer">
+      <p>&copy; 2024 My Company | <a href="{{unsubscribe_link}}">Unsubscribe</a></p>
+    </div>
+  </div>
+</body>
+</html>
