@@ -35,7 +35,7 @@ const limiter = new Bottleneck({
 const sendLimitedEmail = limiter.wrap(sendEmail);
 
   for (const recipient of recipients) {
-    // Assuming emailContent is generated as a string in generateEmail()
+    // Assuming emailcontent is generated as a string in generateEmail(), return subject and emailContent
     const { subject, emailContent } = generateEmail(templateData, recipient, templateType);
 
     // Save generated email to file
