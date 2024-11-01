@@ -21,28 +21,17 @@ export async function loadTemplate(templateName) {
   }
 }
 
-export function generateEmail(template, recipientData, templateName) {
-  let emailContent = template.templateContent
-    .replace('{{name}}', recipientData.name);
-    
-    if (templateName === "promotion") {
-      emailContent = emailContent
-      .replace('{{promo_link}}', recipientData.promo_link || '')
-      .replace('{{discount_percentage}}', recipientData.discount_percentage)
-      .replace('{{unsubscribe_link}}', recipientData.unsubscribe_link || '')
-      .replace('{{time_limit}}', recipientData.time_limit || '');
-  } else if (templateName === "invitation") {
-      emailContent = emailContent
-        .replace('{{name}}', recipientData.name || '')
-      .replace('{{content}}', recipientData.content || '')
-        .replace('{{rsvp_link}}', recipientData.rsvp_link || '')
-    .replace('{{unsubscribe_link}}', recipientData.unsubscribe_link || '');
-      
-  }
+// template engine to dynamically replace placeholders in the template
+function applyTemplate(template, data) {
+  return template.replace(/{{(.*?)}}/g, (_, key) => {
+    return data[key.trim()] || ''; // if value not found return empty
+  });
+}
 
-  // Ensure the subject is processed correctly
-  let subject = template.subject.replace('{{name}}', recipientData.name);
-
+export function generateEmail(template, recipientData) {
+  const emailContent = applyTemplate(template.templateContent, recipientData);
+  const subject = applyTemplate(template.subject, recipientData);
+  
   return { subject, emailContent };
 }
 
