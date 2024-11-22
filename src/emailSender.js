@@ -2,13 +2,13 @@ import nodemailer from 'nodemailer';
 
 // Function to send email using Nodemailer
 export async function sendEmail(to, subject, emailContent) {
-  let sender = 'your-gmail@gmail.com'
+  let sender = '1atultiwari062@gmail.com'
 
   const transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
       user: sender,
-      pass: '*16 letter app password*' 
+      pass: 'xtqd ggxa dybt fxhz' 
     }
   });
 
